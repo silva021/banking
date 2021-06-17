@@ -23,4 +23,19 @@
         <deepLink app:uri="app://HOME_SCREEN" />
     </fragment>
 
+    <fragment
+        android:id="@+id/extractFragment"
+        android:name="com.silva021.extract.ExtractFragment"
+        tools:layout="@layout/fragment_extract">
+        <deepLink app:uri="app://EXTRACT_SCREEN" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/creditFragment"
+        android:name="com.silva021.credit.ui.CreditFragment"
+        tools:layout="@layout/fragment_credit">
+        <deepLink app:uri="app://CREDIT_SCREEN" />
+    </fragment>
+
+
 </navigation>
