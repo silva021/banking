@@ -40,7 +40,7 @@ class ExtractFragment : Fragment() {
                 ),
                 Transaction(
                     label = "Pagamento realizado",
-                    value = "R$ 4.460.00",
+                    value = "R$ 1.000.00",
                     description = "MovilePay"
                 )
             )
