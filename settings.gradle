@@ -1,2 +1,5 @@
 rootProject.name = "banking"
 include ':app'
+include ':extract'
+include ':credit'
+include ':home'
