@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/my_navigation"
-    app:startDestination="@id/splashScreenFragment">
+    app:startDestination="@id/extractFragment">
 
 
     <fragment
@@ -25,7 +25,7 @@
 
     <fragment
         android:id="@+id/extractFragment"
-        android:name="com.silva021.extract.ExtractFragment"
+        android:name="com.silva021.extract.ui.extract.ExtractFragment"
         tools:layout="@layout/fragment_extract">
         <deepLink app:uri="app://EXTRACT_SCREEN" />
     </fragment>

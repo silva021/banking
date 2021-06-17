@@ -36,6 +36,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentLeft="true"
+                android:textStyle="bold"
                 android:text="Saldo disponível"
                 android:textSize="20sp" />
 
