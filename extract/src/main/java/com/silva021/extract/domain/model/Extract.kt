@@ -1,3 +1,5 @@
 package com.silva021.extract.domain.model
 
-data class Extract(var balance: Balance, var listTransaction: List<Transaction>)
+import com.squareup.moshi.Json
+
+data class Extract(var balance: Balance, @field:Json(name = "transactions") var transactions: List<Transaction>)
