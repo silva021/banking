@@ -1,5 +1,6 @@
 package com.silva021.extract.ui.extract
 
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -11,7 +12,6 @@ import com.silva021.extract.databinding.FragmentExtractBinding
 import com.silva021.extract.domain.model.Balance
 import com.silva021.extract.domain.model.Transaction
 import com.silva021.extract.ui.extract.adapter.ExtractItemAdapter
-import com.silva021.extract.ui.extract.adapter.ExtractViewModel
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 class ExtractFragment : Fragment() {
@@ -22,8 +22,12 @@ class ExtractFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         configRecyclerView()
-        Log.d("Feature-Fragment", "Fragmento foi criado")
+        setupObservers()
+        setupListeners()
+        viewModel.getTransactions()
+    }
 
+    private fun setupObservers() {
         viewModel.transaction.observe(viewLifecycleOwner, {
             updateListItemRecyclerView(it)
             binding.shimmerViewContainer.visibility = View.GONE
@@ -33,8 +37,14 @@ class ExtractFragment : Fragment() {
         viewModel.balance.observe(viewLifecycleOwner, {
             updateBalance(it)
         })
+    }
 
-        viewModel.getTransactions()
+
+    fun setupListeners() {
+
+        binding.toolbar.setNavigationOnClickListener {
+            requireActivity().onBackPressed()
+        }
     }
 
     private fun configRecyclerView() {
@@ -49,7 +59,6 @@ class ExtractFragment : Fragment() {
     }
 
     private fun updateListItemRecyclerView(list: List<Transaction>) {
-        Log.d("Feature-Fragment", "Observer observou algo")
         adapter.addExtractItem(list)
     }
 

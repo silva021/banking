@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/my_navigation"
-    app:startDestination="@id/extractFragment">
+    app:startDestination="@id/creditFragment">
 
 
     <fragment
@@ -32,7 +32,7 @@
 
     <fragment
         android:id="@+id/creditFragment"
-        android:name="com.silva021.credit.ui.CreditFragment"
+        android:name="com.silva021.credit.ui.credit.CreditFragment"
         tools:layout="@layout/fragment_credit">
         <deepLink app:uri="app://CREDIT_SCREEN" />
     </fragment>

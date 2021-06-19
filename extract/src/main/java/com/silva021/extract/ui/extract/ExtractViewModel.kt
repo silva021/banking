@@ -1,4 +1,4 @@
-package com.silva021.extract.ui.extract.adapter
+package com.silva021.extract.ui.extract
 
 import android.util.Log
 import androidx.lifecycle.LiveData

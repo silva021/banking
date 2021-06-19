@@ -15,7 +15,7 @@ class AppExtractRepository(private val extractApiService: ExtractApi) : ExtractR
         return when (extract) {
             is Output.Success -> {
                 Log.d("Feature-Fragment", "Repository retornou o valor")
-                extract.value
+                extract.body
             }
             is Output.Failure -> {
                 Log.d("Feature-Fragment", "Repository retornou um exception")

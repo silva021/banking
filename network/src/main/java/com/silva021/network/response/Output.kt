@@ -4,7 +4,7 @@ import retrofit2.Response
 import java.net.HttpURLConnection
 
 sealed class Output<out Response> {
-    data class Success<Response> (val value : Response): Output<Response>()
+    data class Success<Response> (val body : Response): Output<Response>()
     data class Failure(val statusCode: Int): Output<Nothing>()
 }
 

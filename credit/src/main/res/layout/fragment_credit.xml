@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="ui.CreditFragment">
+    tools:context=".ui.credit.CreditFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -27,28 +27,28 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginLeft="16dp"
             android:layout_marginTop="10dp"
+            android:layout_marginEnd="16dp"
             android:paddingTop="2dp"
             android:paddingBottom="2dp"
             android:src="@drawable/img_card_active"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/toolbar"
-            tools:minHeight="200dp"
-            android:layout_marginLeft="16dp" />
+            tools:minHeight="200dp" />
 
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/text_card_number"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:textColor="#FFFFFF"
             android:layout_marginStart="40dp"
             android:layout_marginLeft="40dp"
             android:layout_marginEnd="24dp"
             android:layout_marginBottom="4dp"
             android:textAppearance="@style/TextAppearance.MovilePay.H4"
+            android:textColor="#FFFFFF"
             app:layout_constraintBottom_toTopOf="@id/text_card_holder_name"
             app:layout_constraintEnd_toEndOf="@id/img_card_status"
             app:layout_constraintStart_toStartOf="@+id/img_card_status"
@@ -59,10 +59,10 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
-            android:textColor="#FFFFFF"
             android:layout_marginEnd="24dp"
             android:layout_marginBottom="4dp"
             android:textAppearance="@style/TextAppearance.MovilePay.P3"
+            android:textColor="#FFFFFF"
             app:layout_constraintBottom_toTopOf="@id/text_card_description"
             app:layout_constraintEnd_toEndOf="@id/img_card_status"
             app:layout_constraintStart_toStartOf="@id/img_card_status"
@@ -75,8 +75,8 @@
             android:layout_marginStart="40dp"
             android:layout_marginEnd="24dp"
             android:layout_marginBottom="24dp"
-            android:textColor="#FFFFFF"
             android:textAppearance="@style/TextAppearance.MovilePay.P3"
+            android:textColor="#FFFFFF"
             app:layout_constraintBottom_toBottomOf="@id/img_card_status"
             app:layout_constraintEnd_toEndOf="@id/img_card_status"
             app:layout_constraintStart_toStartOf="@id/img_card_status"
@@ -86,7 +86,7 @@
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="32dp"
+            android:layout_marginStart="32dp"
             android:layout_marginTop="16dp"
             android:fontFamily="@font/sul_sans_regular"
             android:text="Limite disponível: "
@@ -98,7 +98,7 @@
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="32dp"
+            android:layout_marginStart="32dp"
             android:layout_marginTop="4dp"
             android:fontFamily="@font/sul_sans_regular"
             android:text="Limite Total: "
@@ -107,21 +107,22 @@
             app:layout_constraintTop_toBottomOf="@+id/textView" />
 
         <TextView
-            android:id="@+id/txtLimiteDisposnivel"
+            android:id="@+id/txt_limit_total"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/sul_sans_bold"
-            android:text="R$ 3000.00"
+            tools:text="R$ 3000.00"
             android:textSize="19sp"
             app:layout_constraintStart_toEndOf="@+id/textView"
             app:layout_constraintTop_toTopOf="@+id/textView" />
 
         <TextView
+            android:id="@+id/txt_limit_available"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:fontFamily="@font/sul_sans_bold"
-            android:text="R$ 5000.00"
+            tools:text="R$ 5000.00"
             android:textSize="19sp"
             app:layout_constraintStart_toEndOf="@+id/textView2"
             app:layout_constraintTop_toBottomOf="@+id/textView" />

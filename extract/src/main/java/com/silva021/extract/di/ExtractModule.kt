@@ -5,11 +5,12 @@ import com.silva021.extract.data.service.ExtractApi
 import com.silva021.extract.domain.repository.ExtractRepository
 import com.silva021.extract.domain.usecase.GetTransactions
 import com.silva021.extract.domain.usecase.GetTransactionsUseCase
-import com.silva021.extract.ui.extract.adapter.ExtractViewModel
+import com.silva021.extract.ui.extract.ExtractViewModel
 import com.silva021.network.retrofit.RetrofitInstance
 import org.koin.dsl.module
 
-val dataModule = module {
+val extractModule = module {
+    // Criando o singleton da instancia do service do retorift com base na nossa classe passada
     single { RetrofitInstance().createService(ExtractApi::class.java) }
     single<ExtractRepository> { AppExtractRepository(extractApiService = get()) }
     single<GetTransactionsUseCase> { GetTransactions(repository = get()) }

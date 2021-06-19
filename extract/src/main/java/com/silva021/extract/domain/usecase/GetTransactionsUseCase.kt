@@ -1,7 +1,6 @@
 package com.silva021.extract.domain.usecase
 
 import com.silva021.extract.domain.model.Extract
-import com.silva021.extract.domain.model.Transaction
 import com.silva021.extract.domain.repository.ExtractRepository
 import java.lang.Exception
 
@@ -15,6 +14,4 @@ class GetTransactions(private val repository: ExtractRepository) : GetTransactio
     } catch (e: Exception) {
         throw Exception()
     }
-
-
 }
