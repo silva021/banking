@@ -3,7 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="extract/src/main/res/layout-v21/fragment_extract.xml" value="0.20729166666666668" />
         <entry key="extract/src/main/res/layout/fragment_extract.xml" value="0.18" />
+        <entry key="extract/src/main/res/layout/layout_item_extract.xml" value="0.33" />
+        <entry key="extract/src/main/res/layout/layout_item_extract_placeholder.xml" value="0.33" />
       </map>
     </option>
   </component>

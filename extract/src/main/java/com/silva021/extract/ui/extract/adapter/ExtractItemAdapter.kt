@@ -6,11 +6,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.silva021.extract.databinding.LayoutItemExtractBinding
 import com.silva021.extract.domain.model.Transaction
-import java.util.*
 
-class ExtractItemAdapter(private var transactions: MutableList<Transaction>) :
+class ExtractItemAdapter() :
     RecyclerView.Adapter<ExtractItemAdapter.ViewHolder>() {
-
+    private var mTransactionsList: MutableList<Transaction> = mutableListOf()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding =
             LayoutItemExtractBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -19,16 +18,16 @@ class ExtractItemAdapter(private var transactions: MutableList<Transaction>) :
 
     @SuppressLint("NotifyDataSetChanged")
     fun addExtractItem(transactions: List<Transaction>) {
-        this.transactions.clear()
-        this.transactions.addAll(transactions)
+        this.mTransactionsList.clear()
+        this.mTransactionsList.addAll(transactions)
         notifyDataSetChanged()
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(transactions[position])
+        holder.bind(mTransactionsList[position])
     }
 
-    override fun getItemCount(): Int = transactions.size
+    override fun getItemCount(): Int = mTransactionsList.size
 
     class ViewHolder(private val binding: LayoutItemExtractBinding) :
         RecyclerView.ViewHolder(binding.root) {

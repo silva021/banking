@@ -26,6 +26,8 @@ class ExtractFragment : Fragment() {
 
         viewModel.transaction.observe(viewLifecycleOwner, {
             updateListItemRecyclerView(it)
+            binding.shimmerViewContainer.visibility = View.GONE
+            binding.shimmerViewContainer.stopShimmer()
         })
 
         viewModel.balance.observe(viewLifecycleOwner, {
@@ -36,7 +38,7 @@ class ExtractFragment : Fragment() {
     }
 
     private fun configRecyclerView() {
-        adapter = ExtractItemAdapter(mutableListOf())
+        adapter = ExtractItemAdapter()
         binding.recyclerView.adapter = adapter
         binding.recyclerView.layoutManager =
             LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
