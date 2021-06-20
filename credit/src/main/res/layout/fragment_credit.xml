@@ -27,7 +27,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="16dp"
             android:paddingTop="2dp"
@@ -38,49 +37,74 @@
             app:layout_constraintTop_toBottomOf="@+id/toolbar"
             tools:minHeight="200dp" />
 
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/text_card_number"
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/shimmer_view_container"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="40dp"
-            android:layout_marginLeft="40dp"
-            android:layout_marginEnd="24dp"
-            android:layout_marginBottom="4dp"
-            android:textAppearance="@style/TextAppearance.MovilePay.H4"
-            android:textColor="#FFFFFF"
-            app:layout_constraintBottom_toTopOf="@id/text_card_holder_name"
-            app:layout_constraintEnd_toEndOf="@id/img_card_status"
-            app:layout_constraintStart_toStartOf="@+id/img_card_status"
-            tools:text="•••• •••• •••• 8765" />
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/text_card_holder_name"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="40dp"
-            android:layout_marginEnd="24dp"
-            android:layout_marginBottom="4dp"
-            android:textAppearance="@style/TextAppearance.MovilePay.P3"
-            android:textColor="#FFFFFF"
-            app:layout_constraintBottom_toTopOf="@id/text_card_description"
-            app:layout_constraintEnd_toEndOf="@id/img_card_status"
-            app:layout_constraintStart_toStartOf="@id/img_card_status"
-            tools:text="Maria Eduarda Silva de Lima" />
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/text_card_description"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="40dp"
-            android:layout_marginEnd="24dp"
-            android:layout_marginBottom="24dp"
-            android:textAppearance="@style/TextAppearance.MovilePay.P3"
-            android:textColor="#FFFFFF"
+            android:layout_marginStart="16dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="16dp"
             app:layout_constraintBottom_toBottomOf="@id/img_card_status"
             app:layout_constraintEnd_toEndOf="@id/img_card_status"
             app:layout_constraintStart_toStartOf="@id/img_card_status"
-            tools:text="Cancelado em 20 Jun 2020" />
+            app:layout_constraintTop_toTopOf="@+id/img_card_status">
+
+            <include
+                layout="@layout/layout_card_info_placeholder"
+                android:layout_width="match_parent"
+                android:layout_marginStart="40dp"
+                android:layout_marginEnd="24dp"
+                android:layout_height="match_parent" />
+        </com.facebook.shimmer.ShimmerFrameLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_card_info"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="24dp"
+            app:layout_constraintBottom_toBottomOf="@id/img_card_status"
+            app:layout_constraintEnd_toEndOf="@id/img_card_status"
+            app:layout_constraintStart_toStartOf="@id/img_card_status"
+            app:layout_constraintTop_toTopOf="@+id/img_card_status">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/text_card_number"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:textAppearance="@style/TextAppearance.MovilePay.H4"
+                android:textColor="#FFFFFF"
+                app:layout_constraintBottom_toTopOf="@id/text_card_holder_name"
+                app:layout_constraintEnd_toEndOf="@id/layout_card_info"
+                app:layout_constraintStart_toStartOf="@+id/layout_card_info"
+                tools:text="•••• •••• •••• 8765" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/text_card_holder_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:textAppearance="@style/TextAppearance.MovilePay.P3"
+                android:textColor="#FFFFFF"
+                app:layout_constraintBottom_toTopOf="@id/text_card_description"
+                app:layout_constraintEnd_toEndOf="@id/layout_card_info"
+                app:layout_constraintStart_toStartOf="@id/layout_card_info"
+                tools:text="Maria Eduarda Silva de Lima" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/text_card_description"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:textAppearance="@style/TextAppearance.MovilePay.P3"
+                android:textColor="#FFFFFF"
+                app:layout_constraintBottom_toBottomOf="@id/layout_card_info"
+                app:layout_constraintEnd_toEndOf="@id/layout_card_info"
+                app:layout_constraintStart_toStartOf="@id/layout_card_info"
+                tools:text="Cancelado em 20 Jun 2020" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
 
         <TextView
             android:id="@+id/textView"
@@ -111,10 +135,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/sul_sans_bold"
-            tools:text="R$ 3000.00"
             android:textSize="19sp"
             app:layout_constraintStart_toEndOf="@+id/textView"
-            app:layout_constraintTop_toTopOf="@+id/textView" />
+            app:layout_constraintTop_toTopOf="@+id/textView"
+            tools:text="R$ 3000.00" />
 
         <TextView
             android:id="@+id/txt_limit_available"
@@ -122,10 +146,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:fontFamily="@font/sul_sans_bold"
-            tools:text="R$ 5000.00"
             android:textSize="19sp"
             app:layout_constraintStart_toEndOf="@+id/textView2"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
+            app:layout_constraintTop_toBottomOf="@+id/textView"
+            tools:text="R$ 5000.00" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

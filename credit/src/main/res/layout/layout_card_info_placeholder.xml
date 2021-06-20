@@ -1,0 +1,37 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout_card_info"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <View
+        android:id="@+id/text_card_number_placeholder"
+        android:layout_width="0dp"
+        android:layout_height="18dp"
+        android:layout_marginBottom="4dp"
+        android:background="@color/placeholder_bg"
+        app:layout_constraintBottom_toTopOf="@id/text_card_holder_name_placeholder"
+        app:layout_constraintEnd_toEndOf="@id/layout_card_info"
+        app:layout_constraintStart_toStartOf="@+id/layout_card_info" />
+
+    <View
+        android:id="@+id/text_card_holder_name_placeholder"
+        android:layout_width="0dp"
+        android:layout_height="18dp"
+        android:layout_marginBottom="4dp"
+        android:background="@color/placeholder_bg"
+        app:layout_constraintBottom_toTopOf="@id/text_card_description_placeholder"
+        app:layout_constraintEnd_toEndOf="@id/layout_card_info"
+        app:layout_constraintStart_toStartOf="@id/layout_card_info" />
+
+    <View
+        android:id="@+id/text_card_description_placeholder"
+        android:layout_width="0dp"
+        android:layout_height="18dp"
+        android:layout_marginBottom="24dp"
+        android:background="@color/placeholder_bg"
+        app:layout_constraintBottom_toBottomOf="@id/layout_card_info"
+        app:layout_constraintEnd_toEndOf="@id/layout_card_info"
+        app:layout_constraintStart_toStartOf="@id/layout_card_info" />
+</androidx.constraintlayout.widget.ConstraintLayout>

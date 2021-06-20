@@ -44,6 +44,8 @@ class CreditFragment : Fragment() {
     }
 
     private fun updateInfoCard(info: CreditCard) {
+        binding.shimmerViewContainer.stopShimmer()
+        binding.shimmerViewContainer.visibility = View.GONE
         with(info) {
             binding.textCardNumber.text = cardNumber
             binding.textCardHolderName.text = cardName
