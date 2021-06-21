@@ -1,5 +1,5 @@
 package com.silva021.home.data.model
 
-import com.silva021.home.domain.model.Widget
+import com.silva021.network.response.model.Widget
 
-data class HomeWidget(private val widgets: List<Widget>)
+data class HomeWidget(val widgets: List<Widget>)

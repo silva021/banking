@@ -4,19 +4,31 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.silva021.home.databinding.WidgetEmptyViewholderBinding
+import com.silva021.home.databinding.WidgetHomeCardBinding
 import com.silva021.home.databinding.WidgetHomeHeaderBinding
-import com.silva021.home.domain.model.HomeHeaderWidget
-import com.silva021.home.domain.model.Widget
-import com.silva021.home.domain.model.Widgets
+import com.silva021.home.databinding.WidgetHomeStatementBinding
 import com.silva021.home.ui.home.adapter.viewholder.EmptyViewHolder
-import com.silva021.home.ui.home.adapter.viewholder.HomeHeaderVIewHolder
+import com.silva021.home.ui.home.adapter.viewholder.HomeCardViewHolder
+import com.silva021.home.ui.home.adapter.viewholder.HomeHeaderViewHolder
+import com.silva021.home.ui.home.adapter.viewholder.HomeStatementViewHolder
+import com.silva021.network.response.model.*
 
 class HomeAdapter(private val widgetList: List<Widget>) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder =
         when (viewType) {
-            Widgets.HOME_HEADER.ordinal -> HomeHeaderVIewHolder(
+            Widgets.HOME_HEADER_WIDGET.ordinal -> HomeHeaderViewHolder(
                 WidgetHomeHeaderBinding.inflate(
+                    LayoutInflater.from(parent.context), parent, false
+                )
+            )
+            Widgets.HOME_CARD_WIDGET.ordinal -> HomeCardViewHolder(
+                WidgetHomeCardBinding.inflate(
+                    LayoutInflater.from(parent.context), parent, false
+                )
+            )
+            Widgets.HOME_STATEMENT_WIDGET.ordinal -> HomeStatementViewHolder(
+                WidgetHomeStatementBinding.inflate(
                     LayoutInflater.from(parent.context), parent, false
                 )
             )
@@ -31,7 +43,9 @@ class HomeAdapter(private val widgetList: List<Widget>) :
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (holder) {
-            is HomeHeaderVIewHolder -> holder.bind(widgetList[position] as HomeHeaderWidget)
+            is HomeHeaderViewHolder -> holder.bind(widgetList[position] as HomeHeaderWidget)
+            is HomeCardViewHolder -> holder.bind(widgetList[position] as HomeCardWidget)
+            is HomeStatementViewHolder -> holder.bind(widgetList[position] as HomeStatementWidget)
         }
 
     }
@@ -39,7 +53,12 @@ class HomeAdapter(private val widgetList: List<Widget>) :
     override fun getItemCount(): Int = widgetList.size
 
     override fun getItemViewType(position: Int) = when {
-        isHomeWidget(position, Widgets.HOME_HEADER) -> Widgets.HOME_HEADER.ordinal
+        isHomeWidget(position, Widgets.HOME_HEADER_WIDGET) -> Widgets.HOME_HEADER_WIDGET.ordinal
+        isHomeWidget(position, Widgets.HOME_CARD_WIDGET) -> Widgets.HOME_CARD_WIDGET.ordinal
+        isHomeWidget(
+            position,
+            Widgets.HOME_STATEMENT_WIDGET
+        ) -> Widgets.HOME_STATEMENT_WIDGET.ordinal
         else -> 999
     }
 

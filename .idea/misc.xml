@@ -9,9 +9,13 @@
         <entry key="extract/src/main/res/layout/fragment_extract.xml" value="0.18" />
         <entry key="extract/src/main/res/layout/layout_item_extract.xml" value="0.33" />
         <entry key="extract/src/main/res/layout/layout_item_extract_placeholder.xml" value="0.33" />
+        <entry key="home/src/main/res/drawable/ic_question.xml" value="0.13333333333333333" />
+        <entry key="home/src/main/res/drawable/selector_card_idle_subtitle.xml" value="0.2234375" />
         <entry key="home/src/main/res/layout/fragment_home.xml" value="0.26197916666666665" />
         <entry key="home/src/main/res/layout/widget_empty_viewholder.xml" value="0.26197916666666665" />
+        <entry key="home/src/main/res/layout/widget_home_card.xml" value="0.5" />
         <entry key="home/src/main/res/layout/widget_home_header.xml" value="0.26197916666666665" />
+        <entry key="home/src/main/res/layout/widget_home_statement.xml" value="0.5" />
       </map>
     </option>
   </component>

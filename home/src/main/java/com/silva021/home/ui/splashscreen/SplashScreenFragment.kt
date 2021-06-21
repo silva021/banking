@@ -14,8 +14,6 @@ import com.silva021.home.databinding.FragmentSplashScreenBinding
 class SplashScreenFragment : Fragment(), Animator.AnimatorListener {
     lateinit var binding: FragmentSplashScreenBinding
 
-
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.animation.addAnimatorListener(this)
@@ -29,13 +27,13 @@ class SplashScreenFragment : Fragment(), Animator.AnimatorListener {
         return binding.root
     }
 
-
     override fun onAnimationStart(animation: Animator?) {
 
     }
 
     override fun onAnimationEnd(animation: Animator?) {
         val uri = Uri.parse("app://HOME_SCREEN")
+//        val uri = Uri.parse("app://CREDIT_SCREEN")
         findNavController().navigate(uri)
     }
 
