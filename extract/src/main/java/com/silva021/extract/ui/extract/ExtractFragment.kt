@@ -1,8 +1,6 @@
 package com.silva021.extract.ui.extract
 
-import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -40,8 +38,7 @@ class ExtractFragment : Fragment() {
     }
 
 
-    fun setupListeners() {
-
+    private fun setupListeners() {
         binding.toolbar.setNavigationOnClickListener {
             requireActivity().onBackPressed()
         }

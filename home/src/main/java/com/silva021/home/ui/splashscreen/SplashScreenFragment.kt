@@ -1,4 +1,4 @@
-package com.silva021.home.ui
+package com.silva021.home.ui.splashscreen
 
 import android.animation.Animator
 import android.net.Uri
@@ -10,21 +10,11 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.silva021.home.databinding.FragmentSplashScreenBinding
 
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
 class SplashScreenFragment : Fragment(), Animator.AnimatorListener {
     lateinit var binding: FragmentSplashScreenBinding
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -39,16 +29,6 @@ class SplashScreenFragment : Fragment(), Animator.AnimatorListener {
         return binding.root
     }
 
-    companion object {
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            SplashScreenFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
-    }
 
     override fun onAnimationStart(animation: Animator?) {
 
