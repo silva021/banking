@@ -4,7 +4,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.silva021.home.databinding.WidgetHomeCardBinding
 import com.silva021.network.response.model.HomeCardWidget
 
-class HomeCardViewHolder(private val binding: WidgetHomeCardBinding) :
+class HomeCardViewHolder(
+    private val binding: WidgetHomeCardBinding,
+    private val cardClickAction: () -> Unit
+) :
     RecyclerView.ViewHolder(binding.root) {
     fun bind(widget: HomeCardWidget) {
         binding.textCardNumber.text = widget.content.cardNumber
@@ -12,7 +15,7 @@ class HomeCardViewHolder(private val binding: WidgetHomeCardBinding) :
         binding.button.text = widget.content.button.text
 
         binding.button.setOnClickListener {
-
+            cardClickAction.invoke()
         }
     }
 }

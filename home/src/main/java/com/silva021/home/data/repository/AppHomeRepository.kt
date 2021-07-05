@@ -8,9 +8,8 @@ import java.lang.Exception
 
 class AppHomeRepository(private val service: HomeApi) : HomeRepository {
     override suspend fun getHomeWidgets(): HomeWidget {
-        val homeWidgets = service.getHomeWidgets().parseResponse()
 
-        return when (homeWidgets) {
+        return when (val homeWidgets = service.getHomeWidgets().parseResponse()) {
             is Output.Success -> {
                 homeWidgets.body
             }

@@ -7,13 +7,17 @@ import com.silva021.home.databinding.WidgetEmptyViewholderBinding
 import com.silva021.home.databinding.WidgetHomeCardBinding
 import com.silva021.home.databinding.WidgetHomeHeaderBinding
 import com.silva021.home.databinding.WidgetHomeStatementBinding
+import com.silva021.home.ui.home.adapter.listener.HomeAdapterClick
 import com.silva021.home.ui.home.adapter.viewholder.EmptyViewHolder
 import com.silva021.home.ui.home.adapter.viewholder.HomeCardViewHolder
 import com.silva021.home.ui.home.adapter.viewholder.HomeHeaderViewHolder
 import com.silva021.home.ui.home.adapter.viewholder.HomeStatementViewHolder
 import com.silva021.network.response.model.*
 
-class HomeAdapter(private val widgetList: List<Widget>) :
+class HomeAdapter(
+    private val widgetList: List<Widget>,
+    private val homeAdapterClick: HomeAdapterClick
+) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder =
         when (viewType) {
@@ -25,12 +29,13 @@ class HomeAdapter(private val widgetList: List<Widget>) :
             Widgets.HOME_CARD_WIDGET.ordinal -> HomeCardViewHolder(
                 WidgetHomeCardBinding.inflate(
                     LayoutInflater.from(parent.context), parent, false
-                )
+                ), homeAdapterClick.cardAction
             )
             Widgets.HOME_STATEMENT_WIDGET.ordinal -> HomeStatementViewHolder(
                 WidgetHomeStatementBinding.inflate(
                     LayoutInflater.from(parent.context), parent, false
-                )
+                ),
+                homeAdapterClick.statementAction
             )
             else -> EmptyViewHolder(
                 WidgetEmptyViewholderBinding.inflate(

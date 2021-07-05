@@ -20,11 +20,11 @@ class CreditFragment : Fragment() {
 
         setupObserver()
         setupListeners()
-        viewModel.loadCardInfo()
+        viewModel.loadCardInfo("123")
 
     }
 
-    fun setupListeners() {
+    private fun setupListeners() {
         binding.imgCardStatus.setOnClickListener {
             findNavController().navigate(Uri.parse("app://EXTRACT_SCREEN"))
         }
@@ -34,13 +34,26 @@ class CreditFragment : Fragment() {
         }
     }
 
-    fun setupObserver() {
+    private fun setupObserver() {
         viewModel.cardCreditInfo.observe(viewLifecycleOwner, {
-            it?.let {
-                updateInfoCard(it)
+            when (it) {
+                is com.silva021.network.response.Output.Success -> {
+                    it.body.let {
+                        updateInfoCard(it)
+                    }
+                }
+                is com.silva021.network.response.Output.Failure -> {
+                    showErrorLayout()
+                }
             }
 
+
         })
+    }
+
+    private fun showErrorLayout() {
+        binding.layoutCard.visibility = View.GONE
+        binding.layoutError.visibility = View.VISIBLE
     }
 
     private fun updateInfoCard(info: CreditCard) {

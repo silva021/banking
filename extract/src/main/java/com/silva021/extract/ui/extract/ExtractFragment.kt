@@ -5,11 +5,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.silva021.extract.databinding.FragmentExtractBinding
 import com.silva021.extract.domain.model.Balance
 import com.silva021.extract.domain.model.Transaction
 import com.silva021.extract.ui.extract.adapter.ExtractItemAdapter
+import com.silva021.network.response.Output
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 class ExtractFragment : Fragment() {
@@ -22,19 +24,38 @@ class ExtractFragment : Fragment() {
         configRecyclerView()
         setupObservers()
         setupListeners()
-        viewModel.getTransactions()
+        val accountId = "123"
+        viewModel.getTransactions(accountId)
     }
 
     private fun setupObservers() {
-        viewModel.transaction.observe(viewLifecycleOwner, {
-            updateListItemRecyclerView(it)
-            binding.shimmerViewContainer.visibility = View.GONE
-            binding.shimmerViewContainer.stopShimmer()
+        viewModel.extract.observe(viewLifecycleOwner, {
+            when (it) {
+                is Output.Success -> {
+                    it.body.transactions.let {
+                        updateListItemRecyclerView(it)
+                        binding.shimmerViewContainer.visibility = View.GONE
+                        binding.shimmerViewContainer.stopShimmer()
+                    }
+
+                    it.body.balance.let {
+                        updateBalance(it)
+                    }
+                }
+                is Output.Failure -> {
+                    showErrorLayout()
+                }
+            }
         })
 
-        viewModel.balance.observe(viewLifecycleOwner, {
-            updateBalance(it)
-        })
+    }
+
+    private fun showErrorLayout() {
+        binding.shimmerViewContainer.visibility = View.GONE
+        binding.recyclerView.visibility = View.GONE
+        binding.txtLimitTotal.visibility = View.GONE
+        binding.txtBalance.visibility = View.GONE
+        binding.layoutEmpty.layoutEmpty.visibility = View.VISIBLE
     }
 
 
