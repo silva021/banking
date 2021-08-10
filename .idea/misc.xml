@@ -7,6 +7,7 @@
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.1" />
         <entry key="credit/src/main/res/layout/fragment_credit.xml" value="0.18" />
         <entry key="credit/src/main/res/layout/layout_empty.xml" value="0.20729166666666668" />
+        <entry key="extract/src/main/res/drawable/ic_arrow_back.xml" value="0.146875" />
         <entry key="extract/src/main/res/layout-v21/fragment_extract.xml" value="0.20729166666666668" />
         <entry key="extract/src/main/res/layout/fragment_extract.xml" value="0.18" />
         <entry key="extract/src/main/res/layout/layout_empty.xml" value="0.33" />

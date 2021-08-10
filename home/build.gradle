@@ -39,8 +39,6 @@ android {
 dependencies {
     def lottieVersion = "3.4.0"
     def nav_version = "2.3.5"
-
-
     implementation project(':network')
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"

@@ -8,10 +8,8 @@ import kotlinx.coroutines.runBlocking
 import okhttp3.MediaType
 import okhttp3.ResponseBody
 import org.junit.Assert
-import org.junit.Assert.assertTrue
 import org.junit.Test
 import retrofit2.Response
-import java.lang.Exception
 
 class ExtractRepositoryTest {
     private val extractApi: ExtractApi = mockk()
